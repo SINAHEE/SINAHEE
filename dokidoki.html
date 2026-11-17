@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DOKIDOKI 데뷔 기사</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16161d; --sub:#5f6270; --line:#e6e6ec; --bg:#f4f4f7;
+    --brand:#e8336d; --navy:#26306b; --lav:#a99be0; --lavbg:#f3f0ff; --navybg:#eef0fa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Noto Sans KR',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.75;-webkit-font-smoothing:antialiased}
+  img{display:block;width:100%;height:auto}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+  .back{display:flex;align-items:center;gap:6px;background:#16151a;color:#fff;font-size:12.5px;padding:9px 18px;letter-spacing:.02em}
+  .back span{color:#c9bdf0}
+  /* ===== top bar ===== */
+  .top{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+  .top-in{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 18px}
+  .logo{font-weight:900;font-size:22px;letter-spacing:-.5px}
+  .logo b{color:var(--brand)}
+  .logo small{font-size:11px;font-weight:500;color:var(--sub);margin-left:6px;letter-spacing:0}
+  .top-icons{display:flex;gap:14px;color:var(--sub)}
+  .top-icons svg{width:20px;height:20px}
+  .nav{max-width:760px;margin:0 auto;display:flex;gap:20px;padding:0 18px;overflow-x:auto;font-size:14px;font-weight:500;color:var(--sub);scrollbar-width:none}
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{padding:10px 0 11px;white-space:nowrap;border-bottom:2px solid transparent}
+  .nav a.on{color:var(--ink);font-weight:700;border-color:var(--ink)}
+
+  /* ===== breaking ticker ===== */
+  .ticker{background:var(--navy);color:#fff;font-size:13px;overflow:hidden;white-space:nowrap}
+  .ticker-in{max-width:760px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:8px 18px}
+  .ticker .tag{background:var(--brand);font-weight:700;font-size:11px;padding:2px 7px;border-radius:3px;flex:none}
+  .ticker .track{overflow:hidden;flex:1}
+  .ticker .move{display:inline-block;animation:slide 22s linear infinite;padding-left:100%}
+  @keyframes slide{to{transform:translateX(-100%)}}
+
+  /* ===== article ===== */
+  main{max-width:760px;margin:0 auto;background:#fff}
+  .head{padding:26px 20px 18px;border-bottom:1px solid var(--line)}
+  .crumb{font-size:13px;color:var(--brand);font-weight:700;margin-bottom:10px}
+  .crumb span{color:var(--sub);font-weight:500}
+  h1{font-family:'Noto Serif KR',serif;font-size:27px;line-height:1.38;font-weight:900;letter-spacing:-.6px;word-break:keep-all}
+  .deck{margin-top:12px;padding-left:12px;border-left:3px solid var(--lav);color:#3b3d4a;font-size:15.5px;font-weight:500;line-height:1.6;word-break:keep-all}
+  .meta{margin-top:18px;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--sub);flex-wrap:wrap}
+  .avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--lav));color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px;flex:none}
+  .meta .who{color:var(--ink);font-weight:700}
+  .meta .dates{width:100%;font-size:12px;margin-top:2px}
+  .tools{margin-top:14px;display:flex;gap:8px}
+  .chip{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;color:var(--sub);border:1px solid var(--line);border-radius:999px;padding:5px 11px;background:#fff;transition:.15s}
+  .chip:active{transform:scale(.96)}
+  .chip.on{color:var(--brand);border-color:#f7b9cc;background:#fff3f7}
+
+  .body{padding:22px 20px 10px;font-size:16.5px}
+  .body p{margin-bottom:20px;word-break:keep-all}
+  .body p.lead{font-weight:500}
+  .quote{color:var(--ink)}
+  figure{margin:4px -20px 26px}
+  figcaption{font-size:12.5px;color:var(--sub);line-height:1.55;padding:9px 20px 0;word-break:keep-all}
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+  .sub-h{font-size:18px;font-weight:900;margin:30px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--ink);letter-spacing:-.3px}
+  .byline-end{font-size:13.5px;color:var(--sub);margin:4px 0 26px}
+  .copy{font-size:12px;color:#9a9cab;border-top:1px solid var(--line);padding-top:12px;margin-bottom:22px}
+
+  /* profile cards */
+  .profiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+  .pc{border-radius:12px;padding:14px 14px 12px;font-size:13.5px;line-height:1.55}
+  .pc.t{background:var(--navybg);border:1px solid #cdd2ee}
+  .pc.a{background:var(--lavbg);border:1px solid #ddd5fb}
+  .pc .nm{font-size:19px;font-weight:900;display:flex;align-items:center;gap:7px;margin-bottom:8px}
+  .dot{width:11px;height:11px;border-radius:50%;display:inline-block}
+  .pc dl{display:grid;grid-template-columns:auto 1fr;gap:3px 9px}
+  .pc dt{color:var(--sub)}
+  .pc dd{font-weight:500}
+  .album{display:flex;gap:14px;align-items:center;background:linear-gradient(120deg,#ffe3ef,#ece6ff 60%,#dfe4fb);border-radius:12px;padding:14px;margin-bottom:26px}
+  .album img{width:76px;height:76px;object-fit:cover;object-position:top;border-radius:8px;flex:none}
+  .album .lab{font-size:11px;font-weight:700;color:var(--brand);letter-spacing:.5px}
+  .album .tt{font-weight:900;font-size:16px;line-height:1.35}
+  .album .sm{font-size:12.5px;color:var(--sub)}
+
+  .fandom{display:flex;gap:14px;align-items:center;border:1.5px dashed #f2a9c3;background:#fff6fa;border-radius:12px;padding:12px 14px;margin-bottom:10px}
+  .fandom .fh{font-size:30px;flex:none;animation:beat 1.1s ease-in-out infinite}
+  @keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.18)}30%{transform:scale(1)}45%{transform:scale(1.12)}}
+  .fandom .lab{font-size:11px;font-weight:700;color:var(--brand);letter-spacing:.5px}
+  .fandom .tt{font-weight:900;font-size:17px;line-height:1.35}
+  .fandom .tt small{font-size:12px;color:var(--sub);font-weight:500;margin-left:3px}
+  .fandom .sm{font-size:12.5px;color:var(--sub)}
+  /* reactions */
+  .react{border-top:8px solid var(--bg);padding:22px 20px}
+  .react h3,.related h3,.cmt h3{font-size:16px;font-weight:900;margin-bottom:14px}
+  .emos{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;text-align:center}
+  .emo{border:1px solid var(--line);border-radius:10px;padding:10px 2px 8px;font-size:12px;color:var(--sub);transition:.15s}
+  .emo .e{font-size:24px;display:block;line-height:1.2}
+  .emo .n{font-weight:700;color:var(--ink);display:block;margin-top:2px}
+  .emo.on{border-color:var(--brand);background:#fff3f7}
+  .emo.on .n{color:var(--brand)}
+
+  /* related */
+  .related{border-top:8px solid var(--bg);padding:22px 20px}
+  .rel{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);align-items:center}
+  .rel:last-child{border:none}
+  .rel img{width:84px;height:62px;object-fit:cover;object-position:top;border-radius:6px;flex:none}
+  .rel p{font-size:14.5px;font-weight:500;line-height:1.45;word-break:keep-all}
+  .rel small{display:block;color:var(--sub);font-size:12px;margin-top:3px;font-weight:400}
+
+  /* comments */
+  .cmt{border-top:8px solid var(--bg);padding:22px 20px 40px}
+  .cmt h3 em{color:var(--brand);font-style:normal}
+  .sort{display:flex;gap:12px;font-size:13px;color:var(--sub);margin-bottom:12px}
+  .sort b{color:var(--ink)}
+  .write{display:flex;gap:8px;margin-bottom:8px}
+  .write input{flex:1;border:1px solid var(--line);border-radius:8px;padding:11px 12px;font:inherit;font-size:14px;outline:none}
+  .write input:focus{border-color:var(--lav)}
+  .write button{background:var(--ink);color:#fff;border-radius:8px;padding:0 16px;font-size:14px;font-weight:700}
+  .c{padding:15px 0;border-bottom:1px solid var(--line)}
+  .c .u{font-size:13.5px;font-weight:700;display:flex;align-items:center;gap:6px}
+  .c .u .best{font-size:10.5px;color:#fff;background:var(--brand);border-radius:3px;padding:0 5px;font-weight:700}
+  .c .u time{font-weight:400;color:var(--sub);font-size:12px}
+  .c .t{font-size:15px;margin:5px 0 8px;word-break:keep-all}
+  .c .acts{display:flex;gap:14px;font-size:12.5px;color:var(--sub)}
+  .c .acts button.on{color:var(--brand);font-weight:700}
+  .c.new{animation:pop .4s ease}
+  @keyframes pop{from{background:#fff3f7}to{background:#fff}}
+
+  footer{max-width:760px;margin:0 auto;text-align:center;font-size:11.5px;color:#9a9cab;padding:22px 20px 40px;line-height:1.7}
+  .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:rgba(22,22,29,.92);color:#fff;font-size:13.5px;padding:10px 18px;border-radius:999px;opacity:0;transition:.25s;pointer-events:none;z-index:20}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  @media (min-width:700px){
+    h1{font-size:33px}
+    figure{margin:4px 0 26px}
+    figcaption{padding-left:0;padding-right:0}
+    .head,.body,.react,.related,.cmt{padding-left:36px;padding-right:36px}
+  }
+</style>
+</head>
+<body>
+<a class="back" href="index.html#dokidoki">← <span>아히 · Heaven Corp.</span> 로 돌아가기</a>
+
+<header class="top">
+  <div class="top-in">
+    <div class="logo"><b>★</b>스타펄스<small>연예 · 가요</small></div>
+    <div class="top-icons">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </div>
+  </div>
+  <nav class="nav">
+    <a>홈</a><a class="on">가요</a><a>방송</a><a>영화</a><a>드라마</a><a>스타</a><a>포토</a><a>랭킹</a>
+  </nav>
+</header>
+
+<div class="ticker"><div class="ticker-in"><span class="tag">속보</span><div class="track"><span class="move">DOKIDOKI 데뷔곡 '두근두근 무적모드', 공개 1시간 만에 실시간 음원차트 진입 · 공식 팬덤명 '코코로' 공개 · 오는 19일 첫 음악방송 무대 확정</span></div></div></div>
+
+<main>
+  <section class="head">
+    <div class="crumb">가요 <span>· 신인</span></div>
+    <h1>'무적의 아이돌' DOKIDOKI, 오늘 데뷔… "두근거림으로 가요계 정복하겠다"</h1>
+    <p class="deck">툐비·아히 2인조 걸그룹 탄생, 데뷔곡 '두근두근 무적모드' 공개</p>
+    <div class="meta">
+      <div class="avatar">김</div>
+      <span class="who">김하늘 기자</span>
+      <span>sky@starpulse.news</span>
+      <span class="dates">입력 2026.11.16 18:00 &nbsp;|&nbsp; 수정 2026.11.16 19:42</span>
+    </div>
+    <div class="tools">
+      <button class="chip" id="likeBtn">♡ <span id="likeN">82,104</span></button>
+      <a class="chip" href="#comments">💬 <span id="cmtTop">1,284</span></a>
+      <button class="chip" id="shareBtn">공유</button>
+    </div>
+  </section>
+
+  <article class="body">
+    <figure>
+      <img src="showcase1.webp" alt="DOKIDOKI 데뷔 쇼케이스 포토월">
+      <figcaption>걸그룹 DOKIDOKI(툐비, 아히)가 16일 오후 서울 광진구 예스24라이브홀에서 열린 데뷔 쇼케이스에 앞서 포토타임을 갖고 있다. / 사진 = 하트비트엔터테인먼트</figcaption>
+    </figure>
+
+    <p class="lead">신인 걸그룹 DOKIDOKI(도키도키)가 마침내 가요계에 첫발을 내디뎠다.</p>
+    <p>DOKIDOKI는 16일 오후 6시 각종 음원 사이트를 통해 데뷔 싱글 'INVINCIBLE HEART'를 발매하고 공식 데뷔했다. 같은 날 열린 데뷔 쇼케이스에는 취재진과 팬 500여 명이 몰려 신인답지 않은 화제성을 보여줬다.</p>
+    <p>DOKIDOKI는 툐비와 아히로 이뤄진 2인조 걸그룹이다. 그룹명은 설렘에 가슴이 뛰는 소리를 뜻하는 '도키도키'에서 따왔고, '보는 사람의 심장을 뛰게 만드는 무적의 아이돌'이라는 포부를 담았다.</p>
+
+    <figure>
+      <div class="pair">
+        <img src="concept1.webp" alt="DOKIDOKI 콘셉트 포토 1">
+        <img src="concept2.webp" alt="DOKIDOKI 콘셉트 포토 2">
+      </div>
+      <figcaption>DOKIDOKI 데뷔 싱글 'INVINCIBLE HEART' 콘셉트 포토. 멤버 컬러인 남색과 연보라를 살린 Y2K 무드가 돋보인다. / 사진 = 하트비트엔터테인먼트</figcaption>
+    </figure>
+
+    <p>타이틀곡 '두근두근 무적모드'는 Y2K 감성의 신스팝 사운드에 중독성 있는 후렴이 돋보이는 곡이다. "누가 와도 안 져, 내 심장은 무적모드"라는 가사로 당당하고 사랑스러운 매력을 담아냈다.</p>
+    <p class="quote">리더 툐비는 쇼케이스에서 "오랫동안 꿈꿔온 무대에 드디어 서게 돼 꼬리까지 떨린다"며 "DOKIDOKI라는 이름처럼 모든 분의 심장을 두근거리게 만들겠다"고 소감을 전했다.</p>
+    <p class="quote">아히는 "툐비 언니와 둘이라 무서운 게 없었다"며 "처음 이름을 불러주신 팬분들을 평생 잊지 않겠다. 앞으로 지켜봐 달라"고 말해 박수를 받았다.</p>
+
+    <figure>
+      <img src="showcase2.webp" alt="DOKIDOKI 쇼케이스 포토월 2">
+      <figcaption>툐비(왼쪽)와 아히가 손을 흔들며 취재진에게 인사하고 있다. / 사진 = 하트비트엔터테인먼트</figcaption>
+    </figure>
+
+    <p>두 멤버는 이날 각자의 멤버 컬러인 남색과 연보라색 의상을 입고 무대에 올라 눈길을 끌었다. 툐비는 남색 벨벳 드레스로 우아한 분위기를, 아히는 연보라 트위드 세트로 청순한 매력을 뽐냈다.</p>
+    <p>이날 DOKIDOKI는 공식 팬덤명 '코코로(KOKORO)'도 처음 공개했다. '마음', '심장'을 뜻하는 일본어 '코코로'에서 따온 이름으로, '두근거리는 DOKIDOKI의 심장이 되어주는 소중한 존재'라는 의미를 담았다. 툐비는 "코코로가 있어야 저희 심장도 뛸 수 있다"며 "오늘부터 저희의 무적 심장이 되어 달라"고 전했다.</p>
+    <p>DOKIDOKI는 오는 19일 Mnet '엠카운트다운'에서 데뷔 무대를 갖고 본격적인 활동에 나선다.</p>
+
+    <h2 class="sub-h">DOKIDOKI 프로필</h2>
+    <div class="profiles">
+      <div class="pc t">
+        <div class="nm"><span class="dot" style="background:var(--navy)"></span>툐비</div>
+        <dl><dt>포지션</dt><dd>리더, 메인보컬</dd><dt>컬러</dt><dd>남색 💙</dd><dt>포인트</dt><dd>여우 귀, 두 개의 꼬리</dd></dl>
+      </div>
+      <div class="pc a">
+        <div class="nm"><span class="dot" style="background:var(--lav)"></span>아히</div>
+        <dl><dt>포지션</dt><dd>메인댄서, 비주얼</dd><dt>컬러</dt><dd>연보라 💜</dd><dt>포인트</dt><dd>은빛 뿔, 날개 귀</dd></dl>
+      </div>
+    </div>
+    <div class="fandom">
+      <span class="fh">💗</span>
+      <div><div class="lab">OFFICIAL FANDOM</div><div class="tt">코코로 <small>KOKORO</small></div><div class="sm">DOKIDOKI의 심장이 되어주는 소중한 존재</div></div>
+    </div>
+    <div class="album">
+      <img src="concept2.webp" alt="앨범 커버">
+      <div>
+        <div class="lab">DEBUT SINGLE</div>
+        <div class="tt">INVINCIBLE HEART</div>
+        <div class="sm">타이틀곡 '두근두근 무적모드'<br>2026.11.16 발매</div>
+      </div>
+    </div>
+
+    <p class="byline-end">김하늘 기자 sky@starpulse.news</p>
+    <p class="copy">ⓒ 스타펄스. 무단전재 및 재배포 금지</p>
+  </article>
+
+  <section class="react">
+    <h3>이 기사, 어떠셨나요?</h3>
+    <div class="emos" id="emos">
+      <button class="emo" data-n="4821"><span class="e">😍</span>설레요<span class="n"></span></button>
+      <button class="emo" data-n="2310"><span class="e">👏</span>응원해요<span class="n"></span></button>
+      <button class="emo" data-n="1187"><span class="e">🥹</span>감동이에요<span class="n"></span></button>
+      <button class="emo" data-n="642"><span class="e">🔥</span>대박이에요<span class="n"></span></button>
+      <button class="emo" data-n="95"><span class="e">🤔</span>궁금해요<span class="n"></span></button>
+    </div>
+  </section>
+
+  <section class="related">
+    <h3>관련 기사</h3>
+    <a class="rel"><img src="concept1.webp" alt=""><p>DOKIDOKI 툐비, 여우상 비주얼에 "실물이 더 예뻐"<small>스타펄스 · 2시간 전</small></p></a>
+    <a class="rel"><img src="showcase2.webp" alt="" style="object-position:70% 10%"><p>'날개 귀 소녀' 아히, 쇼케이스서 눈물 "팬들 덕분"<small>스타펄스 · 3시간 전</small></p></a>
+    <a class="rel"><img src="concept2.webp" alt=""><p>신인 걸그룹 DOKIDOKI, 데뷔 첫날 음원차트 진입<small>스타펄스 · 5시간 전</small></p></a>
+  </section>
+
+  <section class="cmt" id="comments">
+    <h3>댓글 <em id="cmtN">1,284</em></h3>
+    <div class="sort"><b>순공감순</b><span>최신순</span><span>공감비율순</span></div>
+    <form class="write" id="cform">
+      <input id="cinput" maxlength="150" placeholder="응원 댓글을 남겨주세요 💌">
+      <button type="submit">등록</button>
+    </form>
+    <div id="clist"></div>
+  </section>
+</main>
+
+<footer>스타펄스 | 연예 전문 뉴스<br>이 페이지는 가상의 기사입니다.</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+  const fmt = n => n.toLocaleString('ko-KR');
+  const toast = msg => { const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove('show'),1600); };
+
+  // like
+  let likes = 82104, liked = false;
+  const likeBtn = document.getElementById('likeBtn');
+  likeBtn.onclick = () => {
+    liked = !liked; likes += liked ? 1 : -1;
+    likeBtn.classList.toggle('on', liked);
+    likeBtn.firstChild.textContent = liked ? '♥ ' : '♡ ';
+    document.getElementById('likeN').textContent = fmt(likes);
+  };
+  document.getElementById('shareBtn').onclick = async () => {
+    try { await navigator.clipboard.writeText(location.href); toast('링크가 복사됐어요'); }
+    catch(e){ toast('공유 링크를 복사하지 못했어요'); }
+  };
+
+  // reactions
+  document.querySelectorAll('.emo').forEach(b => {
+    let n = +b.dataset.n; const out = b.querySelector('.n'); out.textContent = fmt(n);
+    b.onclick = () => { const on = b.classList.toggle('on'); n += on ? 1 : -1; out.textContent = fmt(n); };
+  });
+
+  // comments
+  const comments = [
+    {u:'dokilove_99', t:'3분 전', c:'툐비 꼬리 흔드는 거 실화냐… 오늘부터 입덕합니다 💙', up:2341, down:12, best:true},
+    {u:'아히밖에없어', t:'12분 전', c:'아히 우는 거 보고 같이 울었다 ㅠㅠ 꽃길만 걷자 💜', up:1876, down:9, best:true},
+    {u:'무적모드ON', t:'25분 전', c:'후렴 계속 맴돌아서 미치겠음 두근두근 무적모드~', up:1102, down:21, best:true},
+    {u:'코코로1호', t:'28분 전', c:'팬덤명 코코로 너무 귀여워ㅠㅠ 도키도키한 심장 = 코코로 작명 센스 뭐야', up:987, down:4},
+    {u:'남보라조합최고', t:'31분 전', c:'멤버 컬러 남색이랑 연보라 붙여놓으니까 너무 예쁘다 콘셉트 포토 미쳤음', up:874, down:5},
+    {u:'케이팝고인물', t:'48분 전', c:'요즘 신인 중에 콘셉트 제일 확실함. 2인조인데 꽉 차 보여', up:651, down:33},
+    {u:'도키도키해', t:'1시간 전', c:'코코로 1기 가입 완료!! 엠카 본방사수 갑니다 🎀', up:402, down:2}
+  ];
+  let total = 1284;
+  const list = document.getElementById('clist');
+  function render(){
+    list.innerHTML = '';
+    comments.forEach((o,i) => {
+      const d = document.createElement('div'); d.className = 'c' + (o.fresh ? ' new' : '');
+      d.innerHTML = `<div class="u">${o.best?'<span class="best">BEST</span>':''}<span></span><time>${o.t}</time></div>
+        <p class="t"></p>
+        <div class="acts"><button data-k="up">👍 <span>${fmt(o.up)}</span></button><button data-k="down">👎 <span>${fmt(o.down)}</span></button><span>답글</span></div>`;
+      d.querySelector('.u span:not(.best)').textContent = o.u;
+      d.querySelector('.t').textContent = o.c;
+      d.querySelectorAll('.acts button').forEach(b => {
+        const k = b.dataset.k;
+        if (o['my'+k]) b.classList.add('on');
+        b.onclick = () => { o['my'+k] = !o['my'+k]; o[k] += o['my'+k] ? 1 : -1; b.classList.toggle('on'); b.querySelector('span').textContent = fmt(o[k]); };
+      });
+      list.appendChild(d);
+      o.fresh = false;
+    });
+  }
+  render();
+  document.getElementById('cform').addEventListener('submit', e => {
+    e.preventDefault();
+    const inp = document.getElementById('cinput'); const v = inp.value.trim();
+    if (!v) return;
+    const bestCount = comments.filter(c=>c.best).length;
+    comments.splice(bestCount, 0, {u:'나', t:'방금 전', c:v, up:0, down:0, fresh:true});
+    total++; document.getElementById('cmtN').textContent = fmt(total); document.getElementById('cmtTop').textContent = fmt(total);
+    inp.value = ''; render(); toast('댓글이 등록됐어요');
+  });
+</script>
+</body>
+</html>

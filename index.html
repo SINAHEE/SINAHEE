@@ -118,6 +118,32 @@
   .pal-name{font-family:var(--f-kr-display); font-size:15px; letter-spacing:.04em; overflow-wrap:anywhere}
   .pal-id{font-family:var(--f-mono); font-weight:300; font-size:10.5px; letter-spacing:.06em; color:var(--muted); overflow-wrap:anywhere}
 
+  /* 자관 · DOKIDOKI */
+  .dk-cover{position:relative; aspect-ratio:4/5; overflow:hidden; background:var(--ink); flex:0 0 auto}
+  .dk-cover img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 0%}
+  .dk-cover::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,#16151a00 55%, #16151ad0 88%, #16151a 100%)}
+  .dk-cover .badge-top{color:#16151acc}
+  .dk-cover .badge-info{position:absolute; z-index:2; left:20px; right:20px; bottom:18px; color:#fff; display:flex; flex-direction:column; gap:8px}
+  .dk-title{display:flex; align-items:baseline; gap:12px}
+  .dk-title strong{font-family:var(--f-en); font-weight:400; font-size:30px; letter-spacing:.22em; line-height:1}
+  .dk-title em{font-family:var(--f-kr-display); font-style:normal; font-weight:300; font-size:14px; letter-spacing:.12em; color:#d6ccf2}
+  .dk-members{display:flex; gap:14px; font-size:13px; font-weight:300; color:#ffffffd9}
+  .dk-members i{display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:6px; vertical-align:1px}
+  .made-with{display:flex; align-items:center; gap:14px; border:1px solid var(--line); padding:12px 14px; text-decoration:none; color:var(--ink)}
+  .made-with img{width:44px; height:44px; object-fit:cover; flex:none}
+  .made-with small{display:block; font-family:var(--f-mono); font-weight:300; font-size:9.5px; letter-spacing:.2em; color:var(--lav)}
+  .made-with b{font-family:var(--f-kr-display); font-weight:400; font-size:15px; letter-spacing:.04em}
+  .made-with span{display:block; font-size:12.5px; font-weight:300; color:var(--muted)}
+  .made-with::after{content:"↗"; margin-left:auto; font-family:var(--f-mono); font-size:13px; color:var(--muted)}
+  .clip{border:1px solid var(--ink); padding:16px 16px 14px; display:flex; flex-direction:column; gap:10px; background:#fff}
+  .clip-top{display:flex; justify-content:space-between; font-family:var(--f-mono); font-weight:300; font-size:9.5px; letter-spacing:.2em; color:var(--muted); border-bottom:1px solid var(--line); padding-bottom:8px}
+  .clip h3{font-family:var(--f-kr-display); font-weight:600; font-size:18px; line-height:1.45; letter-spacing:-.01em; word-break:keep-all}
+  .clip p{font-size:13px; font-weight:300; line-height:1.7; color:#3d3a45; word-break:keep-all}
+  .clip a{align-self:flex-start; border:1px solid var(--ink); background:var(--ink); color:var(--paper); text-decoration:none; font-family:var(--f-mono); font-size:10px; letter-spacing:.18em; padding:7px 14px}
+  .clip a:active{background:var(--lav); border-color:var(--lav)}
+  .dk-gallery{display:grid; grid-template-columns:1fr 1fr; gap:6px}
+  .dk-gallery img{width:100%; aspect-ratio:3/4; object-fit:cover; object-position:50% 10%; display:block}
+
   /* 하단 */
   .foot{border-top:1px solid var(--line); padding:12px 24px 14px; display:flex; align-items:center; justify-content:space-between}
   .foot-note{font-family:var(--f-mono); font-weight:300; font-size:9.5px; letter-spacing:.2em; color:var(--muted)}
@@ -334,8 +360,44 @@ red lips, teeth, open mouth, smile</pre>
       </div>
     </section>
 
+    <section class="page" id="dokidoki" aria-label="자관 DOKIDOKI">
+      <div class="sec-head"><span class="sec-no">04</span><h2 class="sec-title">자관</h2><span class="sec-en">Relation</span></div>
+      <div class="dk-cover">
+        <img src="concept2.webp" alt="DOKIDOKI 콘셉트 포토">
+        <div class="badge-info">
+          <div class="dk-title"><strong>DOKIDOKI</strong><em>무적의 아이돌</em></div>
+          <div class="badge-rule"></div>
+          <div class="dk-members"><span><i style="background:#3a4590"></i>툐비</span><span><i style="background:#b9a9ee"></i>아히</span></div>
+        </div>
+      </div>
+
+      <a class="made-with" href="https://x.com/ttyobi030" target="_blank" rel="noopener">
+        <img src="pal1.jpg" alt="">
+        <div><small>MADE WITH</small><b>툐비</b><span>@ttyobi030 와 함께 만든 자관</span></div>
+      </a>
+
+      <dl class="spec">
+        <div class="spec-row"><dt>Group<span>그룹</span></dt><dd><b>DOKIDOKI</b> · 무적의 아이돌<br>2인조 걸그룹</dd></div>
+        <div class="spec-row"><dt>Debut<span>데뷔</span></dt><dd>2026.11.16<br>싱글 'INVINCIBLE HEART' · 타이틀곡 '두근두근 무적모드'</dd></div>
+        <div class="spec-row"><dt>Members<span>멤버</span></dt><dd><b>툐비</b> 리더 · 메인보컬 · 남색<br><b>아히</b> 메인댄서 · 비주얼 · 연보라</dd></div>
+        <div class="spec-row"><dt>Fandom<span>팬덤</span></dt><dd><b>코코로</b> KOKORO<br>DOKIDOKI의 심장이 되어주는 존재</dd></div>
+      </dl>
+
+      <div class="clip">
+        <div class="clip-top"><span>PRESS CLIPPING</span><span>2026.11.16</span></div>
+        <h3>'무적의 아이돌' DOKIDOKI, 오늘 데뷔… "두근거림으로 가요계 정복하겠다"</h3>
+        <p>툐비·아히 2인조 걸그룹 탄생, 데뷔곡 '두근두근 무적모드' 공개. 공식 팬덤명 '코코로'도 함께 공개했다.</p>
+        <a href="dokidoki.html">기사 전문 보기 →</a>
+      </div>
+
+      <div class="dk-gallery">
+        <img src="concept1.webp" alt="DOKIDOKI 콘셉트 포토">
+        <img src="showcase1.webp" alt="DOKIDOKI 쇼케이스">
+      </div>
+    </section>
+
     <section class="page" aria-label="My Luv">
-      <div class="sec-head"><span class="sec-no">04</span><h2 class="sec-title en">My Luv</h2></div>
+      <div class="sec-head"><span class="sec-no">05</span><h2 class="sec-title en">My Luv</h2></div>
       <nav class="pals" aria-label="트친 트위터 링크">
         <a class="pal" href="https://x.com/ttyobi030" target="_blank" rel="noopener">
           <span class="pal-img has-photo" data-i="1"><img src="pal1.jpg" alt=""><i>01</i></span>
@@ -399,10 +461,10 @@ red lips, teeth, open mouth, smile</pre>
 
   <footer class="foot">
     <span class="foot-note">CONFIDENTIAL</span>
-    <div class="bars" id="bars"><i class="on"></i><i></i><i></i><i></i></div>
+    <div class="bars" id="bars"><i class="on"></i><i></i><i></i><i></i><i></i></div>
     <div class="pager">
       <button id="prev" aria-label="이전 장">←</button>
-      <span class="count" id="count">01/04</span>
+      <span class="count" id="count">01/05</span>
       <button id="next" aria-label="다음 장">→</button>
     </div>
   </footer>
@@ -436,6 +498,14 @@ red lips, teeth, open mouth, smile</pre>
     b.classList.add('done'); setTimeout(()=>{b.textContent='COPY'; b.classList.remove('done');},1600);
   }));
   paint(0);
+  function fromHash(){
+    const el=location.hash && document.getElementById(location.hash.slice(1));
+    if(!el || el.parentElement!==track) return;
+    const i=[...track.children].indexOf(el);
+    requestAnimationFrame(()=>{ track.scrollTo({left:i*track.clientWidth, behavior:'auto'}); paint(i); });
+  }
+  window.addEventListener('hashchange',fromHash);
+  window.addEventListener('load',fromHash);
 </script>
 </body>
 </html>
