@@ -141,6 +141,9 @@
   .clip p{font-size:13px; font-weight:300; line-height:1.7; color:#3d3a45; word-break:keep-all}
   .clip a{align-self:flex-start; border:1px solid var(--ink); background:var(--ink); color:var(--paper); text-decoration:none; font-family:var(--f-mono); font-size:10px; letter-spacing:.18em; padding:7px 14px}
   .clip a:active{background:var(--lav); border-color:var(--lav)}
+  .dk-quad{position:absolute; inset:0; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr}
+  .dk-quad img{position:static; width:100%; height:100%; object-fit:cover; object-position:50% 10%; min-height:0}
+  .dk-cap{font-family:var(--f-mono); font-weight:300; font-size:10px; letter-spacing:.16em; color:var(--muted); margin-top:-14px}
   .dk-gallery{display:grid; grid-template-columns:1fr 1fr; gap:6px}
   .dk-gallery img{width:100%; aspect-ratio:3/4; object-fit:cover; object-position:50% 10%; display:block}
 
@@ -363,11 +366,11 @@ red lips, teeth, open mouth, smile</pre>
     <section class="page" id="dokidoki" aria-label="자관 DOKIDOKI">
       <div class="sec-head"><span class="sec-no">04</span><h2 class="sec-title">자관</h2><span class="sec-en">Relation</span></div>
       <div class="dk-cover">
-        <img src="concept2.webp" alt="DOKIDOKI 콘셉트 포토">
+        <div class="dk-quad"><img src="tyobi.webp" alt="툐비"><img src="ahi.webp" alt="아히"><img src="dojung.webp" alt="도중"><img src="mayo.webp" alt="마요"></div>
         <div class="badge-info">
           <div class="dk-title"><strong>DOKIDOKI</strong><em>무적의 아이돌</em></div>
           <div class="badge-rule"></div>
-          <div class="dk-members"><span><i style="background:#3a4590"></i>툐비</span><span><i style="background:#b9a9ee"></i>아히</span></div>
+          <div class="dk-members"><span><i style="background:#2f4fc4"></i>툐비</span><span><i style="background:#9a7de6"></i>아히</span><span><i style="background:#d8203f"></i>도중</span><span><i style="background:#f08cb4"></i>마요</span></div>
         </div>
       </div>
 
@@ -377,23 +380,25 @@ red lips, teeth, open mouth, smile</pre>
       </a>
 
       <dl class="spec">
-        <div class="spec-row"><dt>Group<span>그룹</span></dt><dd><b>DOKIDOKI</b> · 무적의 아이돌<br>2인조 걸그룹</dd></div>
+        <div class="spec-row"><dt>Group<span>그룹</span></dt><dd><b>DOKIDOKI</b> · 무적의 아이돌<br>4인조 걸그룹</dd></div>
         <div class="spec-row"><dt>Debut<span>데뷔</span></dt><dd>2026.11.16<br>싱글 'INVINCIBLE HEART' · 타이틀곡 '두근두근 무적모드'</dd></div>
-        <div class="spec-row"><dt>Members<span>멤버</span></dt><dd><b>툐비</b> 리더 · 메인보컬 · 남색<br><b>아히</b> 메인댄서 · 비주얼 · 연보라</dd></div>
+        <div class="spec-row"><dt>Members<span>멤버</span></dt><dd><b>툐비</b> 메인보컬 · 파랑<br><b>아히</b> 리더 · 메인댄서 · 보라<br><b>도중</b> 맏언니 · 리드보컬 · 비주얼 · 빨강<br><b>마요</b> 메인래퍼 · 핑크</dd></div>
+        <div class="spec-row"><dt>Units<span>유닛</span></dt><dd><b>맏내즈</b> 도중 · 마요<br><b>막내즈</b> 툐비 · 아히</dd></div>
         <div class="spec-row"><dt>Fandom<span>팬덤</span></dt><dd><b>코코로</b> KOKORO<br>DOKIDOKI의 심장이 되어주는 존재</dd></div>
       </dl>
 
       <div class="clip">
         <div class="clip-top"><span>PRESS CLIPPING</span><span>2026.11.16</span></div>
         <h3>'무적의 아이돌' DOKIDOKI, 오늘 데뷔… "두근거림으로 가요계 정복하겠다"</h3>
-        <p>툐비·아히 2인조 걸그룹 탄생, 데뷔곡 '두근두근 무적모드' 공개. 공식 팬덤명 '코코로'도 함께 공개했다.</p>
+        <p>툐비·아히·도중·마요 4인조 걸그룹 탄생, 데뷔곡 '두근두근 무적모드' 공개. 공식 팬덤명 '코코로'도 함께 공개했다.</p>
         <a href="dokidoki.html">기사 전문 보기 →</a>
       </div>
 
-      <div class="dk-gallery">
+      <div class="dk-gallery" aria-label="막내즈 콘셉트 포토">
         <img src="concept1.webp" alt="DOKIDOKI 콘셉트 포토">
         <img src="showcase1.webp" alt="DOKIDOKI 쇼케이스">
       </div>
+      <p class="dk-cap">UNIT · 막내즈 툐비 &amp; 아히</p>
     </section>
 
     <section class="page" aria-label="My Luv">
